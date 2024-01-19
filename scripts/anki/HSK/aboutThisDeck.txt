@@ -1,0 +1,15 @@
+the following deck is a modified version of [this deck](https://www.reddit.com/r/ChineseLanguage/comments/7mjmjc/best_anki_deck_for_hsk_ive_come_across/)
+
+it has been modified in the following way:
+- added zhuyin readings with the following script
+- deleted the simplified words and sentences if they are the same as the traditional one
+- compressed (the least possible) the audio and the images to fit into the size restrictions of the shared decks pages 
+
+github repo with the python script and template suggestions (would take too much space here):
+https://github.com/qt1b/config/scripts/anki/HSK
+
+command used to convert the audio files
+ffmpeg -i "$file" -ar 48000 -ac 2 -acodec libopus -ab 128k "${file%.*}.opus"
+
+command used to convert the images
+magick convert "$file" -quality 60% "${file%.*}.avif"
