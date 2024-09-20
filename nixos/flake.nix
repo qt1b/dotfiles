@@ -1,5 +1,5 @@
 {
-  description = "qt1b's m1 standart system configuration, mostly importing widevine ";
+  description = "qt1b's m1 standard system configuration, mostly importing widevine ";
 
   inputs = {
     nixos-aarch64-widevine.url = "github:epetousis/nixos-aarch64-widevine";

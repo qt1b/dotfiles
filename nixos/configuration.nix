@@ -93,7 +93,7 @@
        fcitx5-mozc
        fcitx5-hangul
        fcitx5-anthy
-       fcitx5-ssk
+       fcitx5-skk
        fcitx5-material-color
        
 ];
@@ -195,7 +195,7 @@ systemPackages = with pkgs; [
      kdePackages.dolphin 
      brightnessctl
      nwg-look qt5ct qt6ct
-     keepass
+     keepassxc
       rofi-wayland
      libnotify swaynotificationcenter wlogout # or dunst # no need for pamixer with wpctl (by default with pipewire, who install wireplumber)
      wev # should not be that useful # WEV is how to get keycodes

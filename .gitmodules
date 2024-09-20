@@ -1,0 +1,3 @@
+[submodule "nixos/nixos-apple-silicon"]
+	path = nixos/nixos-apple-silicon
+	url = https://github.com/tpwrules/nixos-apple-silicon
