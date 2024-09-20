@@ -1,0 +1,60 @@
+{
+  "nodes": {
+    "nixos-aarch64-widevine": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1712816564,
+        "narHash": "sha256-2oPCuv4hox+FDWdUnyjhmSB7d24i0mFH5pJjVJGY6JM=",
+        "owner": "epetousis",
+        "repo": "nixos-aarch64-widevine",
+        "rev": "fa046abfed9ff3b5c1e0a2ae16311a33056056fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "epetousis",
+        "repo": "nixos-aarch64-widevine",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1712122226,
+        "narHash": "sha256-pmgwKs8Thu1WETMqCrWUm0CkN1nmCKX3b51+EXsAZyY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "08b9151ed40350725eb40b1fe96b0b86304a654b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1726583932,
+        "narHash": "sha256-zACxiQx8knB3F8+Ze+1BpiYrI+CbhxyWpcSID9kVhkQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "658e7223191d2598641d50ee4e898126768fe847",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixos-aarch64-widevine": "nixos-aarch64-widevine",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
