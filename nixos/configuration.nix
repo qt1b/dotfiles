@@ -144,7 +144,8 @@ ipafont
  };
 
   # Enable CUPS to print documents.
-  programs = {
+  programs = {	
+	nix-ld.enable = true;
 	hyprland.enable = true; hyprlock.enable = true;
 	waybar.enable = true; thunar.enable = true; 
 	
