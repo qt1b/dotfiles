@@ -191,6 +191,8 @@ systemPackages = with pkgs; [
      tmux bluez
      kitty foot alacritty
      gcc gnumake rustc zig python3 go lua
+	# for asahi
+	asahi-bless asahi-nvram asahi-btsync asahi-wifisync
      # winmgr related
      mpv cliphist swww swaybg # mpd
      kdePackages.dolphin 
