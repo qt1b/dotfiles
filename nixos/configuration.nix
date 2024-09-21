@@ -94,8 +94,7 @@
        fcitx5-hangul
        fcitx5-anthy
        fcitx5-skk
-       fcitx5-material-color
-       
+       fcitx5-material-color  
 ];
 };
          ibus.engines = with pkgs.ibus-engines; [
@@ -115,17 +114,17 @@
      # incorrect name for now # font = "FiraCode Nerd Font Mono Light";
   };
   fonts = { 
-  packages = with pkgs; [ 
-fira-code-nerdfont 
-mplus-outline-fonts.githubRelease 
-noto-fonts-cjk
-source-code-pro
-ipafont
-    kochi-substitute
-];
-  fontconfig.allowBitmaps = false; 
+    packages = with pkgs; [ 
+	fira-code-nerdfont 
+	mplus-outline-fonts.githubRelease 
+	noto-fonts-cjk
+	source-code-pro
+	ipafont
+	kochi-substitute
+    ];
+    fontconfig.allowBitmaps = false; 
 };
-   services = {
+services = {
    xserver = {
       enable = false;
       xkb = {
@@ -141,20 +140,38 @@ ipafont
      pulse.enable = true; # i plan on disabling it soon, but is still useful for now
      };
   power-profiles-daemon.enable = true;
- };
+};
 
   # Enable CUPS to print documents.
-  programs = {	
+programs = {	
 	nix-ld.enable = true;
 	hyprland.enable = true; hyprlock.enable = true;
 	waybar.enable = true; thunar.enable = true; 
-	
 	neovim.enable = true;
 	vim = {
 	  enable = true;
 	  defaultEditor = true; 
 	};
-	zsh.enable = true; fish.enable = true; yazi.enable = true; 
+zsh = {
+	enable = true; 
+	promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+	shellInit = "tmux"
+};
+fish = {
+	enable = true; 
+	shellInit = "tmux";
+};
+	tmux = {
+		enable = true;
+		clock24 = true;
+		plugins = with pkgs.tmuxPlugins; [ nord tilish battery better-mouse-mode tmux-fzf mode-indicator # dracula tokyo-night-tmux tmux-thumbs gruvbox
+			];
+		extraConfig = ''
+			set -g mouse on
+		'';
+	};
+	yazi.enable = true; 
+	# not configured correcly, but is there
 	uwsm = {
 	enable = true;
 	waylandCompositors = {
@@ -178,16 +195,15 @@ ipafont
        firefox
        tree
      ];
+     shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment = { 
 systemPackages = with pkgs; [
-      wget kate
-     zsh fish nushell
-     git gh
-     p7zip
+      wget kate nushell zsh-powerlevel10k
+     git gh p7zip
      tmux bluez
      kitty foot alacritty
      gcc gnumake rustc zig python3 go lua
@@ -212,6 +228,9 @@ systemPackages = with pkgs; [
     
    ];
     sessionVariables.MOZ_GMP_PATH = [ "${pkgs.widevine-cdm-lacros}/gmp-widevinecdm/system-installed" ]; 
+    variables = {
+	VISUAL = "/run/current-system/sw/"
+    }
 };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -223,9 +242,9 @@ systemPackages = with pkgs; [
   # };
 
   security = {
-    doas.enable = true; # 
+    doas.enable = true; # does not work with nix
     polkit.enable = true;
-    sudo.enable = true; # is required for nixos-rebuild
+    sudo.enable = true; # is required for nix (and some other)
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
